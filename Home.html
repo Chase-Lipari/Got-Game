@@ -6,6 +6,31 @@
     <title>Got Game</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="./Logos/GG logo.jpg" type="image/jpg">
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-analytics.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+      
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+          apiKey: "AIzaSyD7mUtRTymPNBK8_yUduY-QTM9ltTdrgc0",
+          authDomain: "got-game-21c62.firebaseapp.com",
+          projectId: "got-game-21c62",
+          storageBucket: "got-game-21c62.appspot.com",
+          messagingSenderId: "78142404701",
+          appId: "1:78142404701:web:37d4eaefda405728a2b5b4",
+          measurementId: "G-DLEH3DVQLT"
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+      </script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-firestore.js"></script>
 </head>
 <body>
     <nav>
