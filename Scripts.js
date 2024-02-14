@@ -1,6 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
+import { getAuth } from "firebase/auth";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -19,7 +20,7 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
-
+const auth = firebase.getAuth(app)
 
 function signup() {
     var email = document.getElementById('signup-email').value;
@@ -40,23 +41,43 @@ function signup() {
   }
   
 
-function login() {
-    var email = document.getElementById('login-email').value;
-    var password = document.getElementById('login-password').value;
-  
-    firebase.auth().signInWithEmailAndPassword(email, password)
-      .then((userCredential) => {
-        // Signed in
-        var user = userCredential.user;
-        // Redirect to home page or show user info
-        console.log("Logged in as:", user.email);
-      })
-      .catch((error) => {
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        alert(errorMessage);
-      });
+// Login
+const loginForm = document.getElementById('loginForm');
+loginForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const email = loginForm['userEmail'].value;
+  const password = loginForm['userPass'].value;
+
+  auth.signInWithEmailAndPassword(email, password)
+    .then((userCredential) => {
+      // Signed in 
+      console.log('User logged in:', userCredential.user);
+      // You can redirect the user to another page or change UI
+    })
+    .catch((error) => {
+      console.error('Error signing in:', error);
+    });
+});
+
+// Logout
+const logoutBtn = document.getElementById('logoutBtn');
+logoutBtn.addEventListener('click', (e) => {
+  auth.signOut().then(() => {
+    console.log('User signed out');
+    // Update UI or redirect
+  });
+});
+
+// Auth state changes
+auth.onAuthStateChanged(user => {
+  if (user) {
+    // User is signed in, show logout button
+    logoutBtn.style.display = 'block';
+  } else {
+    // User is signed out, hide logout button
+    logoutBtn.style.display = 'none';
   }
+});
   
 
 function addGame(gameData) {
