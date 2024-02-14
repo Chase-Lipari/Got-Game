@@ -1,11 +1,11 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import { getAuth } from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword, connectAuthEmulator } from "firebase/auth";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
-// Your web app's Firebase configuration
+// Your web app's Firebase configuration 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyCLvDbZwodJfGmTDVn9N4fRI3WdNg-ua6U",
@@ -20,44 +20,21 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
-const auth = firebase.getAuth(app)
-
-function signup() {
-    var email = document.getElementById('signup-email').value;
-    var password = document.getElementById('signup-password').value;
-  
-    firebase.auth().createUserWithEmailAndPassword(email, password)
-      .then((userCredential) => {
-        // Signed up
-        var user = userCredential.user;
-        // Update UI or redirect to login page
-        console.log("Account created for:", user.email);
-      })
-      .catch((error) => {
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        alert(errorMessage);
-      });
-  }
-  
-
-// Login
+const auth = getAuth(app)
+connectAuthEmulator(auth, "http://127.0.0.1:5500/Login.html")
 const loginForm = document.getElementById('loginForm');
-loginForm.addEventListener('submit', (e) => {
-  e.preventDefault();
+
+const login = async () => {
   const email = loginForm['userEmail'].value;
   const password = loginForm['userPass'].value;
 
-  auth.signInWithEmailAndPassword(email, password)
-    .then((userCredential) => {
-      // Signed in 
-      console.log('User logged in:', userCredential.user);
-      // You can redirect the user to another page or change UI
-    })
-    .catch((error) => {
-      console.error('Error signing in:', error);
-    });
-});
+  const userCredential = await signInWithEmailAndPassword(auth, email, password);
+  console.log(userCredential.user);
+}
+
+// Login
+
+loginForm.addEventListener('click', login);
 
 // Logout
 const logoutBtn = document.getElementById('logoutBtn');

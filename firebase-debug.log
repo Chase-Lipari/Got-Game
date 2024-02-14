@@ -1,0 +1,57 @@
+[debug] [2024-02-14T05:38:15.529Z] ----------------------------------------------------------------------
+[debug] [2024-02-14T05:38:15.531Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\User\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2024-02-14T05:38:15.531Z] CLI Version:   13.2.1
+[debug] [2024-02-14T05:38:15.531Z] Platform:      win32
+[debug] [2024-02-14T05:38:15.531Z] Node Version:  v20.11.0
+[debug] [2024-02-14T05:38:15.532Z] Time:          Wed Feb 14 2024 00:38:15 GMT-0500 (Eastern Standard Time)
+[debug] [2024-02-14T05:38:15.532Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-02-14T05:38:15.537Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-02-14T05:38:15.538Z] > authorizing via signed-in user (chaselipari@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\User\Desktop\Git\Got-Game
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2024-02-14T05:38:38.698Z] > refreshing access token with scopes: []
+[debug] [2024-02-14T05:38:38.699Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2024-02-14T05:38:38.700Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2024-02-14T05:38:38.842Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2024-02-14T05:38:38.842Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2024-02-14T05:38:38.847Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=100
+[debug] [2024-02-14T05:38:39.166Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 200
+[debug] [2024-02-14T05:38:39.166Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
+[info] i  Using project got-game-2 (got-game 2) 
+[info] 
+=== Hosting Setup
+[debug] [2024-02-14T05:38:41.510Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/got-game-2 [none]
+[debug] [2024-02-14T05:38:41.744Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/got-game-2 200
+[debug] [2024-02-14T05:38:41.745Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/got-game-2 {"projectId":"got-game-2","projectNumber":"21016679178","displayName":"got-game 2","name":"projects/got-game-2","resources":{"hostingSite":"got-game-2"},"state":"ACTIVE","etag":"1_baa0fd57-0d99-4e1e-977b-3a9812df7ad7"}
+[info] 
+[info] Your public directory is the folder (relative to your project directory) that
+[info] will contain Hosting assets to be uploaded with firebase deploy. If you
+[info] have a build process for your assets, use your build's output directory.
+[info] 
+[debug] [2024-02-14T05:39:41.371Z] Error: ENOTDIR: not a directory, scandir 'C:\Users\User\Desktop\Git\Got-Game\home.html'
+    at Object.readdirSync (node:fs:1515:26)
+    at Object.createFileSync (C:\Users\User\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\fs-extra\lib\ensure\file.js:55:10)
+    at Config.writeProjectFile (C:\Users\User\AppData\Roaming\npm\node_modules\firebase-tools\lib\config.js:154:12)
+    at C:\Users\User\AppData\Roaming\npm\node_modules\firebase-tools\lib\config.js:178:22
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async doSetup (C:\Users\User\AppData\Roaming\npm\node_modules\firebase-tools\lib\init\features\hosting\index.js:173:13)
+    at async init (C:\Users\User\AppData\Roaming\npm\node_modules\firebase-tools\lib\init\index.js:37:9)
+[error] 
+[error] Error: An unexpected error has occurred.
