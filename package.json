@@ -1,5 +1,16 @@
 {
   "dependencies": {
     "firebase": "^10.8.0"
-  }
+  },
+  "name": "got-game",
+  "description": "Web application development for Got Game",
+  "version": "1.0.0",
+  "main": "Scripts.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
